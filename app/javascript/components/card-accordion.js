@@ -7,7 +7,6 @@ export default {
         text: String,
         subheading: String,
         id: Number,
-        image: String,
     },
     components: {
         toggleIcon
