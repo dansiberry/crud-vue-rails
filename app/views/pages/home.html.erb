@@ -1,0 +1,49 @@
+<div id="app">
+  <div>
+    <modal-wrapper
+      @close="modal = null"
+      v-if="modal">
+      <form-delete
+        v-if="modal.type == 'delete'"
+        @contact-deleted="fetchContacts"
+        :contact="modal.contact"
+        >
+      </form-delete>
+      <form-edit
+        @contact-updated="fetchContacts"
+        v-if="modal.type == 'edit'"
+        :contact="modal.contact"
+        >
+      </form-edit>
+      <form-new
+        @contact-added="fetchContacts"
+        v-if="modal.type == 'new'"
+        >
+      </form-new>
+    </modal-wrapper>
+    <g-map
+      :contacts="contacts"
+      v-on:update-visible-items="updateVisibleItems"
+      :highlight-pin="highlight"
+    >
+    </g-map>
+  </div>
+  <div class="container">
+    <div class="my-md">
+      <button @click="openModal('new')" class="btn btn--mini">Add new</button>
+      <span class="h4 ml-sm">{{ contactCards.length }} Results</span>
+    </div>
+    <card-accordion
+      v-for="contact in contactCards"
+      :heading="contact.name"
+      :text="contact.summary"
+      :subheading='contact.company'
+      :id="contact.id"
+      :isActive="false"
+      @mouseover.native="highlight = contact.id"
+      @mouseleave.native="highlight = null"
+      @open-modal="openModal"
+    >
+    </card-accordion>
+  </div>
+</div>

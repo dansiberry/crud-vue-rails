@@ -1,0 +1,7 @@
+.g-map {
+  height: 300px;
+
+  @include media-query(desk) {
+    height: 400px;
+  }
+}

@@ -1,0 +1,64 @@
+html {
+    font-size: 18px;
+    line-height: 1.666666667;
+    color: getColour('grey', 'dark');
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+body {
+  margin: 0;
+}
+
+p, h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+// Individual heading class style
+.h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 0.875;
+    text-transform: uppercase;
+
+    @include media-query(desk) {
+        font-size: 60px;
+    }
+}
+
+.h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 0.875;
+    text-transform: uppercase;
+
+    @include media-query(desk) {
+        font-size: 32px;
+    }
+}
+
+.h3 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

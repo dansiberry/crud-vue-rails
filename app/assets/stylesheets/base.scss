@@ -1,0 +1,87 @@
+$breakpoints: (
+    palm: '(max-width: 767px)',
+    lap: '(min-width: 768px) and (max-width: 1023px)',
+    portable: '(max-width: 1023px)',
+    lap-and-up: '(min-width: 768px)',
+    desk: '(min-width: 1024px)',
+    desk-wide: '(min-width: 1440px)'
+);
+
+$spacing: (
+    'xs': 7px,
+    'sm': 18px,
+    'md': 34px,
+    'lg': 46px,
+    'xl': 65px,
+    'xxl': 100px,
+);
+
+$palette: (
+    'grey': (
+        'dark': #414042,
+        'base': #747476,
+        'light': #AFAFAF,
+        'lighter': #F2F2F2,
+        'line': #DDDDDD,
+    ),
+    'orange': (
+        'base': #EF6E0B,
+        'light': #FF8100,
+    ),
+    'white': (
+      'base': #fff
+    )
+);
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function getSpacing($key) {
+  @return map-get($spacing, $key)
+}
+
+@mixin media-query($media-query) {
+    $declaration: map-get($breakpoints, $media-query);
+    @media only screen and #{$declaration} {
+        @content;
+    }
+}
+
+@function getColour($colour, $tone: 'base') {
+    @return map-deep-get($palette, $colour, $tone);
+}
+
+@mixin spacing($namespace, $key, $value) {
+
+    .#{$namespace}m-#{$key}      { margin: $value !important; }
+
+    .#{$namespace}mt-#{$key}     { margin-top: $value !important; }
+    .#{$namespace}mr-#{$key}     { margin-right: $value !important; }
+    .#{$namespace}mb-#{$key}     { margin-bottom: $value !important; }
+    .#{$namespace}ml-#{$key}     { margin-left: $value !important; }
+
+    .#{$namespace}my-#{$key}     { margin-top: $value !important; margin-bottom: $value !important; }
+    .#{$namespace}mx-#{$key}     { margin-left: $value !important; margin-right: $value !important; }
+
+    .#{$namespace}p-#{$key}      { padding: $value !important; }
+
+    .#{$namespace}pt-#{$key}     { padding-top: $value !important; }
+    .#{$namespace}pr-#{$key}     { padding-right: $value !important; }
+    .#{$namespace}pb-#{$key}     { padding-bottom: $value !important; }
+    .#{$namespace}pl-#{$key}     { padding-left: $value !important; }
+
+    .#{$namespace}py-#{$key}     { padding-top: $value !important; padding-bottom: $value !important; }
+    .#{$namespace}px-#{$key}     { padding-left: $value !important; padding-right: $value !important; }
+}
+
+@if length(map-keys($spacing)) {
+    @include spacing('', 'none', 0);
+
+    @each $k, $v in $spacing {
+        @include spacing('', $k, $v);
+    }
+}

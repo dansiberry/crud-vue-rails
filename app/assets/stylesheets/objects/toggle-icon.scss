@@ -1,0 +1,47 @@
+ .toggle-icon {
+    cursor: pointer;
+}
+
+    .toggle-icon__plus-solid {
+        display: none;
+
+        .toggle-icon:hover & {
+            display: block;
+        }
+
+        .toggled & {
+            display: none !important;
+        }
+    }
+
+    .toggle-icon__plus-outline {
+        display: block;
+
+        .toggle-icon:hover & {
+            display: none;
+        }
+
+        .toggled & {
+            display: none !important;
+        }
+    }
+
+    .toggle-icon__minus-outline {
+        display: none;
+
+        .toggled & {
+            display: block;
+        }
+
+        .toggled .toggle-icon:hover & {
+            display: none;
+        }
+    }
+
+    .toggle-icon__minus-solid {
+        display: none;
+
+        .toggled .toggle-icon:hover & {
+            display: block;
+        }
+    }

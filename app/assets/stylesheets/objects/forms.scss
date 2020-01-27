@@ -1,0 +1,52 @@
+form, .form {
+  .field {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-bottom: getSpacing(md);
+    }
+  }
+
+  .field--required {
+    label:after {
+      content: "*";
+      margin-left: 0.25em;
+      color: getColour('orange');
+    }
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  input, textarea {
+      width: 100%;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border: 0;
+      border-bottom: 1px solid getColour('grey','line');
+      font-family: inherit;
+      font-size: inherit;
+      outline: 0;
+      color: inherit;
+
+      &::placeholder {
+          color: getColour('grey','light');
+      }
+
+      &:focus {
+          border-bottom-color: getColour('grey', 'light');
+      }
+  }
+
+  .notice {
+    margin-bottom: 1em;
+    color: getColour('orange');
+    font-weight: 500;
+  }
+}
+
+
