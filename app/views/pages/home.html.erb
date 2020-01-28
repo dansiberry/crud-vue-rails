@@ -25,6 +25,8 @@
       :contacts="contacts"
       v-on:update-visible-items="updateVisibleItems"
       :highlight-pin="highlight"
+      pin-active="<%= image_path('pin-green.png') %>"
+      pin-inactive="<%= image_path('pin-orange.png') %>"
     >
     </g-map>
   </div>

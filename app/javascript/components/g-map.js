@@ -1,14 +1,14 @@
 import styles from './map-style';
 import { loadScript } from '../utils/load-script';
 import mapStyle from './map-style';
-import pinOrange from '../../assets/images/pin-orange.png';
-import pinGreen from '../../assets/images/pin-green.png';
 
 export default {
     name: 'g-map',
     props: {
       contacts: Array,
       highlightPin: Number,
+      pinActive: String,
+      pinInactive: String
     },
     data: () => (
         {
@@ -33,7 +33,7 @@ export default {
             handler() {
               this.googleMarkers.forEach((marker) => {
                 const highlight = marker.id === this.highlightPin;
-                marker.setIcon(highlight ? 'pinGreen' : 'pinOrange');
+                marker.setIcon(highlight ? this.pinActive : this.pinInactive);
               });
             },
         },
