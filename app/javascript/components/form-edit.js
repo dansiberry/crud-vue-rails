@@ -14,7 +14,7 @@ export default {
         name: this.contact.name,
         email: this.contact.email,
         summary: this.contact.summary,
-        company: this.contact.summary
+        company: this.contact.company
       }
     },
     methods: {
