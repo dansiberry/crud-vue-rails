@@ -66,7 +66,7 @@ export default {
                 const googleMarker = new this.google.maps.Marker({
                     position: new this.google.maps.LatLng(contact.lat, contact.lng),
                     map: this.googleMap,
-                    icon: { url: '/assets/pin-orange.png' },
+                    icon: { url: this.pinOrange },
                     id: contact.id,
                 });
                 this.googleMarkers.push(googleMarker);
