@@ -1,8 +1,8 @@
 import styles from './map-style';
 import { loadScript } from '../utils/load-script';
 import mapStyle from './map-style';
-import pinOrange from 'images/pin-orange.png';
-import pinGreen from 'images/pin-green.png';
+import pinOrange from '../../assets/images/pin-orange.png';
+import pinGreen from '../../assets/images/pin-green.png';
 
 export default {
     name: 'g-map',
