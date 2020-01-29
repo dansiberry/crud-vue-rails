@@ -3,14 +3,17 @@ class Contact < ApplicationRecord
   validates :name, presence: true
   validates :company, presence: true
 
-  def self.generateLat()
-    decimal = Array.new(6) { rand(0...9) }.join
-    "#{rand(37...42)}.#{decimal}"
+  def self.generate_lat
+    generate_random_coord(37...42)
   end
 
-  def self.generateLng()
+  def self.generate_lng
+    generate_random_coord(-5...-1)
+  end
+
+  def self.generate_random_coord(range)
     decimal = Array.new(6) { rand(0...9) }.join
-    "#{rand(-5...-1)}.#{decimal}"
+    "#{rand(range)}.#{decimal}"
   end
 end
 

@@ -1,6 +1,5 @@
-import styles from './map-style';
 import { loadScript } from '../utils/load-script';
-import mapStyle from './map-style';
+import mapStyle from '../utils/map-style';
 
 export default {
     name: 'g-map',
@@ -31,14 +30,17 @@ export default {
         },
         highlightPin: {
             handler() {
-              this.googleMarkers.forEach((marker) => {
-                const highlight = marker.id === this.highlightPin;
-                marker.setIcon(highlight ? this.pinActive : this.pinInactive);
-              });
+              this.updatePinIcons();
             },
         },
     },
     methods: {
+        updatePinIcons() {
+          this.googleMarkers.forEach((marker) => {
+            const highlight = marker.id === this.highlightPin;
+            marker.setIcon(highlight ? this.pinActive : this.pinInactive);
+          });
+        },
         initMap() {
             this.google = window.google;
             this.googleMap = new this.google.maps.Map(

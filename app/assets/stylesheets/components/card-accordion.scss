@@ -1,18 +1,13 @@
 .card-accordion {
-    display: -ms-grid;
     display: grid;
-
-    -ms-grid-columns: 2fr 55px 3fr;
-    grid-template-columns: 2fr 3fr;
     grid-column-gap: 55px;
-
     position: relative;
     padding: 1.4rem 0px;
     border-top: 1px solid getColour('grey', 'line');
 
-    .toggle-icon .icon {
-        font-size: 30px;
-    }
+    display: -ms-grid;
+    -ms-grid-columns: 2fr 55px 3fr;
+    grid-template-columns: 2fr 3fr;
 
     @include media-query(portable) {
         grid-template-columns: 100%;
@@ -47,20 +42,6 @@
         -ms-grid-column: 3;
     }
 
-    .card-accordion__logo {
-        width: 100px;
-        display: none;
-
-        .toggled & {
-            display: block;
-        }
-
-        @include media-query(portable) {
-            margin-top: 1.7rem;
-            margin-bottom: 0.7rem;
-        }
-    }
-
     .card-accordion__heading {
         padding-right: 2rem;
         max-width: 450px;
@@ -88,38 +69,14 @@
         @include media-query(palm) {
             right: 1.5rem;
         }
-    }
 
-    .card-accordion__toggled-content {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-
-        .toggled & {
-            max-height: 10000px;
-            opacity: 1;
+        .icon {
+            font-size: 30px;
         }
     }
 
-    .card-accordion__content {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
-    }
-
-    .card-accordion__content-block {
-        min-width: calc(50% - .5rem);
-        margin-right: 0.5rem;
-        margin-bottom: 1.8em;
-    }
-
-    .card-accordion__content-block-heading {
-        margin-bottom: 1em;
-    }
-
-    .card-accordion__content-block-text {
-        color: getColour('grey');
-        margin-bottom: 0.9em;
+    .card-accordion__toggled-content {
+        overflow: hidden;
     }
 
     .card-accordion__summary {
@@ -127,12 +84,4 @@
             color: getColour('orange');
             cursor: pointer;
         }
-    }
-
-    .card-accordion__lozenge {
-        display: inline-block;
-        margin-right: 1rem;
-        border-color: getColour('grey', 'line');
-        margin-bottom: 1em;
-        margin-top: 0.5em;
     }

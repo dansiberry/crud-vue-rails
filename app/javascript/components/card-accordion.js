@@ -27,7 +27,7 @@ export default {
 
             <div class="card-accordion__right">
                 <h3 class="h3 card-accordion__heading">{{ heading }}</h3>
-                <div class="card-accordion__toggled-content">
+                <div v-if="isActive" class="card-accordion__toggled-content">
                     <p class="mb-sm">{{ text }}</p>
                     <button @click="$emit('open-modal', 'delete', id)" class="btn btn--mini mb-sm mr-sm">Delete</button>
                     <button @click="$emit('open-modal', 'edit', id)" class="btn btn--mini">Edit</button>

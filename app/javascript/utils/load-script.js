@@ -3,6 +3,8 @@ export function loadScript(src) {
   const script = window.document.createElement("script");
   script.src = src;
   script.async = true;
-  position.parentNode.insertBefore(script, position);
+  if (position) {
+    position.parentNode.insertBefore(script, position);
+  }
 }
 

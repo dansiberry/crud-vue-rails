@@ -13,8 +13,8 @@ Contact.destroy_all()
   Contact.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    lat: Contact.generateLat,
-    lng: Contact.generateLng,
+    lat: Contact.generate_lat(),
+    lng: Contact.generate_lng(),
     company: Faker::Company.name,
     summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptas nisi qui neque, minus, laudantium deleniti cum, temporibus perspiciatis, facere est hic sapiente. Modi, harum, similique. Porro ipsum laboriosam ea.'
   )

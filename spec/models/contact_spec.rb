@@ -28,4 +28,19 @@ RSpec.describe Contact, type: :model do
       expect(contact).to eq(true)
     end
   end
+
+  context 'Generate lat/lng' do
+    it "Generates a correctly formated coordinate string (in a set range)" do
+      lat = Contact.generate_lat()
+      expect(lat).to be_kind_of(String)
+      expect(lat.split('.')[0].length).to eq(2)
+      expect(lat.split('.')[1].length).to eq(6)
+    end
+
+    it "Generates a random coordinate each time" do
+      lng = Contact.generate_lng()
+      lng2 = Contact.generate_lng()
+      expect(lng).not_to eq(lng2)
+    end
+  end
 end

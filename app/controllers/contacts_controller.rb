@@ -8,8 +8,8 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.lat = Contact.generateLat();
-    @contact.lng = Contact.generateLng();
+    @contact.lat = Contact.generate_lat();
+    @contact.lng = Contact.generate_lng();
 
     if @contact.save
       render json: {status: :ok, message: 'Successfuly saved'}
@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
   end
 
   def update
-    if @contact && @contact.update_attributes(contact_params)
+    if @contact && @contact.update(contact_params)
       render json: {status: :ok, message: 'Successfuly updated contact'}
     else
       render json: {status: "error", code: 400, message: @contact.errors.full_messages.to_sentence}

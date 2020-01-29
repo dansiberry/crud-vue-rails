@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
+  let(:valid_params) {{ email: 'a@a.com', company: 'company', name: 'bob' }}
+
   context 'Index' do
     it "Responds with success" do
       get :index
@@ -21,14 +23,14 @@ RSpec.describe ContactsController, type: :controller do
 
     it "Succeeds if all params given" do
       count = Contact.count
-      post :create, params: { contact: { email: 'a@a.com', company: 'company', name: 'bob' }}
+      post :create, params: { contact: valid_params }
       expect(Contact.count).to eq(count + 1)
     end
   end
 
   context 'Update' do
     it "Updates a given contact" do
-      contact = Contact.create!(email: 'a@a.com', company: 'company', name: 'bob')
+      contact = Contact.create!(valid_params)
       post :update, params: { id: contact.id, contact: { email: 'b@b.com', company: 'company' }}
       expect(Contact.last.email).to eq('b@b.com')
     end
@@ -41,10 +43,17 @@ RSpec.describe ContactsController, type: :controller do
 
   context 'Delete' do
     it "Deletes a given contact" do
-      contact = Contact.create!(email: 'a@a.com', company: 'company', name: 'bob')
+      contact = Contact.create!(valid_params)
       count = Contact.count
       delete :destroy, params: { id: contact.id }
       expect(Contact.count).to eq(count - 1)
+    end
+
+    it "Fails if no ID is given" do
+      contact = Contact.create!(valid_params)
+      count = Contact.count
+      delete :destroy
+      expect(Contact.count).to eq(count)
     end
   end
 end
