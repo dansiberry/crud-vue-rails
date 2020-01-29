@@ -34,5 +34,5 @@ it("Posts form data on submit and handles response", async () => {
 
   expect(spyPostNewContact).toHaveBeenCalled();
   expect(wrapper.emitted()['contact-added']).toBeDefined();
-  expect(wrapper.text()).toMatch(/New contact Contact/);
+  expect(wrapper.text()).toMatch(/Contact Added/);
 })

@@ -51,7 +51,6 @@ export default {
     template: `
         <form class="p-md" @submit="submitForm">
           <h2 class="mb-lg h2">New contact</h2>
-          <p v-if="notice" class="notice">{{ notice }}</p>
           <div class="field field--required">
             <label>Name</label>
             <input required v-model="name" name="name" type="text" placeholder="type here" />
@@ -66,8 +65,9 @@ export default {
           </div>
           <div class="field">
             <label>Summary</label>
-            <textarea placeholder="type here" name="summarys" v-model="summary" rows="3"></textarea>
+            <textarea placeholder="type here" name="summarys" v-model="summary" rows="1"></textarea>
           </div>
+          <p v-if="notice" class="notice">{{ notice }}</p>
           <button
             class="btn mt-sm"
             :class="{'btn--loading' : isLoading, 'btn--disabled' : isDisabled}"

@@ -51,7 +51,8 @@ export default(() => {
           const filteredContacts = this.contacts.reduce((total, contact) => {
             return (this.visibleContactIds.includes(contact.id) ? total.concat([contact]) : total)
           },[]);
-          return filteredContacts;
+          window.con = filteredContacts;
+          return filteredContacts.sort((a, b) => a.name < b.name ? -1 : 1);
         }
       }
   });

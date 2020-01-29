@@ -3,7 +3,7 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    max-width: calc(960px);
+    max-width: 960px;
 
     @include media-query(lap-and-up) {
         padding-left: getSpacing('xl');

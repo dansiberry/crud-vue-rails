@@ -35,8 +35,8 @@ export default {
     template: `
         <div class="p-md form">
           <h2 class="mb-lg h2">Delete contact</h2>
-          <p v-if="notice" class="notice">{{ notice }}</p>
           <p class="mb-md">Are you sure you want to delete contact {{ contact.name }}?</p>
+          <p v-if="notice" class="notice">{{ notice }}</p>
           <button
             class="btn"
             :class="{'btn--loading' : isLoading, 'btn--disabled' : isDisabled}"
